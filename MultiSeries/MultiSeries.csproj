@@ -90,7 +90,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ChartViewModel.cs" />
     <Compile Include="MakeDataSeries.cs" />
     <Compile Include="TransJson.cs" />
     <Page Include="MainWindow.xaml">
