@@ -92,46 +92,20 @@ namespace MultiSeries
         {
             string json = GetJsonString.Request_Json();
             List<double[]> originList = TransJson.JsonObjectToList(json);
-            XyDataSeries<int, double> firstSeries = new XyDataSeries<int, double>() { SeriesName = "First Series" };
+            XyDataSeries<double, double> firstSeries = new XyDataSeries<double, double>() { SeriesName = "First Series" };
             renderableSeries = new ObservableCollection<IRenderableSeriesViewModel>();
-            
-
-            /*for (int i = 0; i < originList.Count; i++ )
-            {
-                XyDataSeries<int, double> dataSeries = new XyDataSeries<int, double>() { SeriesName = "Series " + (i + 1) };
-
-                double[] values = originList[i];
-                int[] count = new int[values.Length];
-
-                for(int j = 0; j < values.Length; j++)
-                {
-                    count[j] = j;
-                    if (values[j] == 0)
-                    {
-                        values[j] = double.NaN;
-                    }
-                }
-
-                dataSeries.Append(count, values);
-                RenderableSeries.Add(new LineRenderableSeriesViewModel()
-                {
-                    StrokeThickness = 2,
-                    Stroke = Colors.Red,
-                    DataSeries = dataSeries
-                });
-            }*/
 
             for(int i = 0; i < originList.Count; i++)
             {
-                XyDataSeries<int, double> dataSeries = new XyDataSeries<int, double>() { SeriesName = "Series " + (i+1) };
-                int[] count = new int[originList[i].Length];
+                XyDataSeries<double, double> dataSeries = new XyDataSeries<double, double>() { SeriesName = "Series " + (i+1) };
+                double[] count = new double[originList[i].Length];
                 double[] values = originList[i];
                 for(int j = 0; j < count.Length; j++)
                 {
                     count[j] = j + 1;
-                    if (values[i] == 0)
+                    if (values[j] == 0)
                     {
-                        values[i] = double.NaN;
+                        values[j] = double.NaN;
                     }
                 }
                 dataSeries.Append(count, values);

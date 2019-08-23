@@ -55,7 +55,6 @@
                 <Setter Property="s:RolloverModifier.TooltipTemplate" Value="{StaticResource TooltipTemplate}"/>
                 <Setter Property="s:RolloverModifier.IncludeSeries" Value="True"/>
                 <Setter Property="StrokeThickness" Value="2"/>
-                <Setter Property="DrawNaNAs" Value="Gaps"/>
             </Style>
         </Window.Resources>
         <Grid DataContext="{StaticResource MainViewModel}">
