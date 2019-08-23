@@ -44,4 +44,14 @@ C:\WorkSpace\MultiSeries\MultiSeries\obj\Debug\MultiSeries.exe
 C:\WorkSpace\MultiSeries\MultiSeries\obj\Debug\MultiSeries.pdb
 C:\WorkSpace\MultiSeries\MultiSeries\bin\Debug\Newtonsoft.Json.dll
 C:\WorkSpace\MultiSeries\MultiSeries\bin\Debug\Newtonsoft.Json.xml
+C:\WorkSpace\MultiSeries\MultiSeries\bin\Debug\Microsoft.Data.ConnectionUI.dll
+C:\WorkSpace\MultiSeries\MultiSeries\bin\Debug\Microsoft.VisualStudio.Data.dll
+C:\WorkSpace\MultiSeries\MultiSeries\bin\Debug\Microsoft.VisualStudio.OLE.Interop.dll
+C:\WorkSpace\MultiSeries\MultiSeries\bin\Debug\Microsoft.VisualStudio.Shell.Interop.dll
+C:\WorkSpace\MultiSeries\MultiSeries\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.dll
+C:\WorkSpace\MultiSeries\MultiSeries\bin\Debug\Microsoft.Data.ConnectionUI.xml
+C:\WorkSpace\MultiSeries\MultiSeries\bin\Debug\Microsoft.VisualStudio.Data.xml
+C:\WorkSpace\MultiSeries\MultiSeries\bin\Debug\Microsoft.VisualStudio.OLE.Interop.xml
+C:\WorkSpace\MultiSeries\MultiSeries\bin\Debug\Microsoft.VisualStudio.Shell.Interop.xml
+C:\WorkSpace\MultiSeries\MultiSeries\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.xml
 C:\WorkSpace\MultiSeries\MultiSeries\obj\Debug\MultiSeries.csprojAssemblyReference.cache

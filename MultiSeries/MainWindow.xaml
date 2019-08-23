@@ -55,6 +55,7 @@
                 <Setter Property="s:RolloverModifier.TooltipTemplate" Value="{StaticResource TooltipTemplate}"/>
                 <Setter Property="s:RolloverModifier.IncludeSeries" Value="True"/>
                 <Setter Property="StrokeThickness" Value="2"/>
+                <Setter Property="DrawNaNAs" Value="Gaps"/>
             </Style>
         </Window.Resources>
         <Grid DataContext="{StaticResource MainViewModel}">
@@ -71,9 +72,10 @@
             </StackPanel>
 
             <!-- Don't forget to add Grid.Row=1 -->
-            <s:SciChartSurface Grid.Row="1"
-                           RenderableSeries="{s:SeriesBinding RenderableSeries}" 
-                           ChartTitle="{Binding ChartTitle}">
+            <s:SciChartSurface x:Name="scichart"
+                            Grid.Row="1"
+                            RenderableSeries="{s:SeriesBinding RenderableSeries}" 
+                            ChartTitle="{Binding ChartTitle}">
 
                 <s:SciChartSurface.XAxis>
                     <s:NumericAxis AxisTitle="{Binding XAxisTitle}"/>
@@ -90,6 +92,7 @@
                         <!-- NEW CODE HERE: Add the LegendModifier and RolloverModifier -->
                         <s:LegendModifier ShowLegend="True" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center"/>
                         <s:RolloverModifier ShowTooltipOn="MouseHover"/>
+                        <s:MouseWheelZoomModifier/>
                         <!-- END NEW CODE -->
                     </s:ModifierGroup>
                 </s:SciChartSurface.ChartModifier>

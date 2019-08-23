@@ -1,5 +1,6 @@
 ﻿using SciChart.Charting.Model.ChartSeries;
 using SciChart.Charting.Model.DataSeries;
+using SciChart.Charting.Visuals.RenderableSeries;
 using SciChart.Data.Model;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -93,6 +94,7 @@ namespace MultiSeries
             List<double[]> originList = TransJson.JsonObjectToList(json);
             XyDataSeries<int, double> firstSeries = new XyDataSeries<int, double>() { SeriesName = "First Series" };
             renderableSeries = new ObservableCollection<IRenderableSeriesViewModel>();
+            
 
             /*for (int i = 0; i < originList.Count; i++ )
             {
@@ -119,23 +121,64 @@ namespace MultiSeries
                 });
             }*/
 
-
-            XyDataSeries<int, double> dataSeries = new XyDataSeries<int, double>() { SeriesName = "First Series" };
-            int[] count = new int[originList[0].Length];
-            double[] values = originList[0];
-            for(int i = 0; i < count.Length; i++)
+            for(int i = 0; i < originList.Count; i++)
             {
-                count[i] = i + 1;
+                XyDataSeries<int, double> dataSeries = new XyDataSeries<int, double>() { SeriesName = "Series " + (i+1) };
+                int[] count = new int[originList[i].Length];
+                double[] values = originList[i];
+                for(int j = 0; j < count.Length; j++)
+                {
+                    count[j] = j + 1;
+                    if (values[i] == 0)
+                    {
+                        values[i] = double.NaN;
+                    }
+                }
+                dataSeries.Append(count, values);
+
+                switch (i % 4)
+                {
+                    case 0 : RenderableSeries.Add(new LineRenderableSeriesViewModel()
+                            {
+                                StrokeThickness = 2,
+                                Stroke = Colors.Red,
+                                DataSeries = dataSeries,
+                                DrawNaNAs = LineDrawMode.Gaps,
+                                StyleKey = "LineSeriesStyle"
+                    });
+                        break;
+                    case 1:
+                        RenderableSeries.Add(new LineRenderableSeriesViewModel()
+                        {
+                            StrokeThickness = 2,
+                            Stroke = Colors.Aqua,
+                            DataSeries = dataSeries,
+                            DrawNaNAs = LineDrawMode.Gaps,
+                            StyleKey = "LineSeriesStyle"
+                        });
+                        break;
+                    case 2:
+                        RenderableSeries.Add(new LineRenderableSeriesViewModel()
+                        {
+                            StrokeThickness = 2,
+                            Stroke = Colors.Gold,
+                            DataSeries = dataSeries,
+                            DrawNaNAs = LineDrawMode.Gaps,
+                            StyleKey = "LineSeriesStyle"
+                        });
+                        break;
+                    default:
+                        RenderableSeries.Add(new LineRenderableSeriesViewModel()
+                        {
+                            StrokeThickness = 2,
+                            Stroke = Colors.HotPink,
+                            DataSeries = dataSeries,
+                            DrawNaNAs = LineDrawMode.Gaps,
+                            StyleKey = "LineSeriesStyle"
+                        });
+                        break;
+                }
             }
-            dataSeries.Append(count, values);
-
-            RenderableSeries.Add(new LineRenderableSeriesViewModel()
-            {
-                StrokeThickness = 2,
-                Stroke = Colors.Red,
-                DataSeries = dataSeries,
-                StyleKey = "LineSeriesStyle"
-            });
         }
     }
 }
